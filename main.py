@@ -31,18 +31,29 @@ class TextEditor(tk.Tk):
         self.menu_bar = tk.Menu(self)
 
         self.file_menu = tk.Menu(self.menu_bar, tearoff=0)
-        self.file_menu.add_command(label='New', command=self.new_file)
-        self.file_menu.add_command(label='Open...', command=self.open_file)
+        self.file_menu.add_command(label='New', accelerator='Ctrl+N', command=self.new_file)
+        self.file_menu.add_command(label='Open...', accelerator='Ctrl+O', command=self.open_file)
         self.file_menu.add_separator()
-        self.file_menu.add_command(label='Save', command=self.save_file)
-        self.file_menu.add_command(label='Save as...', command=self.save_file_as)
+        self.file_menu.add_command(label='Save', accelerator='Ctrl+S', command=self.save_file)
+        self.file_menu.add_command(label='Save as...', accelerator='Ctrl+Shift+S', command=self.save_file_as)
         self.file_menu.add_separator()
-        self.file_menu.add_command(label='Quit', command=self.quit)
+        self.file_menu.add_command(label='Quit', accelerator='Ctrl+Q', command=self.quit)
 
         self.menu_bar.add_cascade(label='File', menu=self.file_menu)
         self.menu_bar.add_command(label='About', command=TextEditor.show_about)
 
         self.config(menu=self.menu_bar)
+
+        self.bind('<Control-n>', lambda e: self.new_file())
+        self.bind('<Control-N>', lambda e: self.new_file())
+        self.bind('<Control-o>', lambda e: self.open_file())
+        self.bind('<Control-O>', lambda e: self.open_file())
+        self.bind('<Control-s>', lambda e: self.save_file())
+        self.bind('<Control-S>', lambda e: self.save_file())
+        self.bind('<Control-Shift-s>', lambda e: self.save_file_as())
+        self.bind('<Control-Shift-S>', lambda e: self.save_file_as())
+        self.bind('<Control-q>', lambda e: self.quit())
+        self.bind('<Control-Q>', lambda e: self.quit())
 
         self.filename = None
 
