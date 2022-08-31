@@ -65,13 +65,13 @@ class TextEditor(tk.Tk):
         self.filename = fd.askopenfilename()
 
         if self.filename and os.path.isfile(self.filename):
-            with open(self.filename, 'r') as f:
+            with open(self.filename, 'r', encoding='utf-8') as f:
                 self.text_field.delete('1.0', 'end')
                 self.text_field.insert('end', f.read())
 
     def save_file(self):
         if self.filename and os.path.isfile(self.filename):
-            with open(self.filename, 'w') as f:
+            with open(self.filename, 'w', encoding='utf-8') as f:
                 f.write(self.text_field.get('1.0', 'end'))
         else:
             self.save_file_as()
@@ -80,7 +80,7 @@ class TextEditor(tk.Tk):
         self.filename = fd.asksaveasfilename()
 
         if self.filename:
-            with open(self.filename, 'w') as f:
+            with open(self.filename, 'w', encoding='utf-8') as f:
                 f.write(self.text_field.get('1.0', 'end'))
 
     @staticmethod
