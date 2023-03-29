@@ -12,7 +12,7 @@ def main():
 
 class TextEditor(tk.Tk):
     def __init__(self):
-        super(TextEditor, self).__init__()
+        super().__init__()
 
         self.iconbitmap('favicon.ico')
         self.title('Ugly Text Editor')
