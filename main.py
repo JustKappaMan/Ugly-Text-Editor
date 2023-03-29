@@ -11,7 +11,7 @@ def main():
 
 
 class TextEditor(tk.Tk):
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
 
         self.iconbitmap('favicon.ico')
@@ -58,11 +58,11 @@ class TextEditor(tk.Tk):
 
         self.filename = None
 
-    def new_file(self):
+    def new_file(self) -> None:
         self.filename = None
         self.text_field.delete('1.0', 'end')
 
-    def open_file(self):
+    def open_file(self) -> None:
         self.filename = fd.askopenfilename()
 
         if self.filename and os.path.isfile(self.filename):
@@ -70,14 +70,14 @@ class TextEditor(tk.Tk):
                 self.text_field.delete('1.0', 'end')
                 self.text_field.insert('end', f.read())
 
-    def save_file(self):
+    def save_file(self) -> None:
         if self.filename and os.path.isfile(self.filename):
             with open(self.filename, 'w', encoding='utf-8') as f:
                 f.write(self.text_field.get('1.0', 'end'))
         else:
             self.save_file_as()
 
-    def save_file_as(self):
+    def save_file_as(self) -> None:
         self.filename = fd.asksaveasfilename()
 
         if self.filename:
@@ -85,7 +85,7 @@ class TextEditor(tk.Tk):
                 f.write(self.text_field.get('1.0', 'end'))
 
     @staticmethod
-    def show_about():
+    def show_about() -> None:
         mb.showinfo(
             'About',
             'Ugly Text Editor v1.0\nDeveloped by Kirill Volozhanin\ngithub.com/JustKappaMan',
