@@ -56,7 +56,7 @@ class TextEditor(tk.Tk):
         self.bind('<Control-q>', lambda e: self.quit())
         self.bind('<Control-Q>', lambda e: self.quit())
 
-        self.filename = None
+        self.filename: str | None = None
 
     def new_file(self) -> None:
         self.filename = None
