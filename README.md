@@ -9,7 +9,6 @@ I've been playing with _Tkinter_ for an hour. This is the result.
 * Launch `main.py`
 
 ## Credits
-* [JetBrains](https://www.jetbrains.com) for [Open Source Development license](https://www.jetbrains.com/community/opensource)
 * [Freepik](https://www.flaticon.com/authors/freepik) for a favicon
 
 ## License
